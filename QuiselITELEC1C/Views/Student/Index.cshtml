@@ -10,6 +10,15 @@
         <td>Date Enrolled</td>
         <td>Email</td>
         <td>Show Details</td>
+        <td>Update</td>
+        <div class="text-align: center;">
+
+            <a class="button" style="background-color: #18F9F8; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;"
+               asp-action="AddStudent">
+                Enter a Student
+
+            </a>
+              </div>
 
 
     </tr>
@@ -22,6 +31,7 @@
             <td>@student.DateEnrolled</td>
             <td>@student.Email</td>
             <td><a asp-action="ShowDetails" asp-route-id="@student.Id">Show Details</a></td>
+            <td><a asp-action="UpdateStudent" asp-route-id="@student.Id">Update</a></td>
 
 
         </tr>

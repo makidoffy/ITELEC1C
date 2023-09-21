@@ -1,0 +1,42 @@
+﻿@*
+
+*@
+@model Instructor;
+<h1>Update an Instructor</h1>
+
+<form asp-action="UpdateInstructor" asp-controller="Instructor" method="post">
+
+    <div class="form-group">
+        <label asp-for="FirstName">FirstName</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LastName">LastName</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsTenured">IsTenured</label>
+        <input asp-for="IsTenured" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rank">Rank</label>
+        <input asp-for="Rank" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Status">Status</label>
+        <input asp-for="Status" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HiringDate">HiringDate</label>
+        <input asp-for="HiringDate" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Save</button>
+
+
+</form>
