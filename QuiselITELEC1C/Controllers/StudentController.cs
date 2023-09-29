@@ -1,35 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuiselITELEC1C.Models;
+using QuiselITELEC1C.Services;
 
 namespace QuiselITELEC1C.Controllers
 {
     public class StudentController : Controller
     {
-        List<Student> StudentList = new List<Student>
-        {
-            new Student()
-            {
-                Id= 1, FirstName = "Reyknowlf", LastName = "Quisel", Course = Course.IT , DateEnrolled = DateTime.Parse("17/12/2020"), Email = "reknowlf.quisel.cics@ust.edu.ph"
+        private readonly Interface _dummyData;
 
-            },
-            new Student()
-            {
-                Id= 2, FirstName = "Latino", LastName = "Marie", Course = Course.CS , DateEnrolled = DateTime.Parse("04/04/2020"), Email = "latino.marie.cics@ust.edu.ph"
-            },
-            new Student()
-            {
-                Id= 3, FirstName = "Luis", LastName = "Granada", Course = Course.IS, DateEnrolled = DateTime.Parse("04/05/2020"), Email = "luisenrico.granada.cics@ust.edu.ph"
-            }
-        };
+        public StudentController(Interface dummyData)
+        {
+            _dummyData = dummyData;
+        }
+
+
+
+
+
         public IActionResult Index()
         {
 
-            return View(StudentList);
+            return View(_dummyData.StudentList);
         }
 
         public IActionResult ShowDetails(int id)
         {
-            Student? student = StudentList.FirstOrDefault(st => st.Id == id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == id);
 
             if (student != null)
                 return View(student);
@@ -51,8 +47,8 @@ namespace QuiselITELEC1C.Controllers
         public IActionResult AddStudent(Student newstudent)
         {
 
-            StudentList.Add(newstudent);
-            return View("Index", StudentList);
+            _dummyData.StudentList.Add(newstudent);
+            return RedirectToAction("Index");
 
         }
 
@@ -60,7 +56,7 @@ namespace QuiselITELEC1C.Controllers
         public IActionResult UpdateStudent(int id)
         {
 
-            Student? student = StudentList.FirstOrDefault(st => st.Id == id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == id);
 
             if (student != null)//was an student found?
                 return View(student);
@@ -73,7 +69,7 @@ namespace QuiselITELEC1C.Controllers
         public IActionResult UpdateStudent(Student studentChanges)
         {
 
-            Student? student = StudentList.FirstOrDefault(st => st.Id == studentChanges.Id);
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == studentChanges.Id);
 
             if (student != null)
             {
@@ -86,10 +82,32 @@ namespace QuiselITELEC1C.Controllers
 
             }
 
-            return View("Index", StudentList);
+            return RedirectToAction("Index");
+
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == id);
+
+            if (student != null)
+                return View(student);
+
+            return NotFound();
 
         }
 
+
+        [HttpPost]
+        public IActionResult Delete(Student newstudent)
+        {
+
+            Student? student = _dummyData.StudentList.FirstOrDefault(st => st.Id == newstudent.Id);
+            if (student != null)
+                _dummyData.StudentList.Remove(student);
+            return RedirectToAction("Index");
+        }
     }
 }
 

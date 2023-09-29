@@ -1,37 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuiselITELEC1C.Models;
+using QuiselITELEC1C.Services;
 
 namespace QuiselITELEC1C.Controllers
 {
     public class InstructorController : Controller
     {
-        List<Instructor> InstructorList = new List<Instructor>
+        private readonly Interface _dummyData;
+
+        public InstructorController (Interface dummyData)
         {
-            new Instructor()
-            {
-                Id= 1,FirstName = "Bernard", LastName = "Sanidad", Rank = Rank.Professor, 
-                HiringDate = DateTime.Parse("24/01/2020"), IsTenured = false
-            },
-            new Instructor()
-            {
-                Id= 2,FirstName = "Beatrix", LastName = "Lacsamana", Rank = Rank.AssistantProfessor, 
-                HiringDate = DateTime.Parse("17/04/2017"), IsTenured = false
-            },
-            new Instructor()
-            {
-                Id= 3,FirstName = "Gabriel", LastName = "Montano", Rank = Rank.AssociateProfessor, 
-                HiringDate = DateTime.Parse("12/07/2019"), IsTenured = true
-            }
-        };
+            _dummyData = dummyData;
+        }
+
         public IActionResult Index()
         {
 
-            return View(InstructorList);
+            return View(_dummyData.InstructorList);
         }
 
         public IActionResult ShowDetails(int id)
         {
-            Instructor? instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+            Instructor? instructor = _dummyData.InstructorList.FirstOrDefault(st => st.Id == id);
 
             if (instructor != null)
                 return View(instructor);
@@ -51,8 +41,8 @@ namespace QuiselITELEC1C.Controllers
         public IActionResult AddInstructor(Instructor newinstructor)
         {
 
-            InstructorList.Add(newinstructor);
-            return View("Index", InstructorList);
+            _dummyData.InstructorList.Add(newinstructor);
+            return RedirectToAction("Index");
 
         }
 
@@ -60,7 +50,7 @@ namespace QuiselITELEC1C.Controllers
         public IActionResult UpdateInstructor(int id)
         {
 
-            Instructor? instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+            Instructor? instructor = _dummyData.InstructorList.FirstOrDefault(st => st.Id == id);
 
             if (instructor != null)//was an student found?
                 return View(instructor);
@@ -73,7 +63,7 @@ namespace QuiselITELEC1C.Controllers
         public IActionResult UpdateInstructor(Instructor instructorChanges)
         {
 
-            Instructor? instructor = InstructorList.FirstOrDefault(st => st.Id == instructorChanges.Id);
+            Instructor? instructor = _dummyData.InstructorList.FirstOrDefault(st => st.Id == instructorChanges.Id);
 
             if (instructor != null)
             {
@@ -87,10 +77,32 @@ namespace QuiselITELEC1C.Controllers
 
             }
 
-            return View("Index", InstructorList);
+            return RedirectToAction("Index");
+
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+
+            Instructor? instructor = _dummyData.InstructorList.FirstOrDefault(st => st.Id == id);
+
+            if (instructor != null)
+                return View(instructor);
+
+            return NotFound();
 
         }
 
+
+        [HttpPost]
+        public IActionResult Delete(Instructor newinstructor)
+        {
+
+            Instructor? instructor = _dummyData.InstructorList.FirstOrDefault(st => st.Id == newinstructor.Id);
+            if (instructor != null)
+                _dummyData.InstructorList.Remove(instructor);
+            return RedirectToAction("Index");
+        }
     }
 
 }

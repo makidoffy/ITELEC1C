@@ -1,7 +1,12 @@
+using QuiselITELEC1C.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<Interface, DataServices>();
+
 
 var app = builder.Build();
 
