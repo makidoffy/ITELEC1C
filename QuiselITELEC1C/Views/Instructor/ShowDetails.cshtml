@@ -2,6 +2,11 @@
 
 <h1>Instructor Details</h1>
 
+@if(ViewBag.StudentProfilePhoto != null)
+{
+<img src="@ViewBag.StudentProfilePhoto" alt="Student Profile Photo for @Model.LastName" width="20%" height="20%" class="img-thumbnail" />
+}
+
 <table class="table table-dark">
     <tr>
         <th>Id</th>
@@ -20,22 +25,7 @@
         <td>@Model.Rank</td>
     </tr>
     <tr>
-        <th>Is Tenured</th>
-        <td>@Model.IsTenured</td>
-    </tr>
-    <tr>
         <th>Hiring Date</th>
         <td>@Model.HiringDate</td>
-    </tr>
-    <tr>
-        <th>Status</th>
-        @if (@Model.IsTenured == true)
-        {
-            <td>Permanent</td>
-        }
-        else
-        {
-            <td>Provisionary</td>
-        }
     </tr>
 </table>

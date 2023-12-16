@@ -32,17 +32,17 @@ namespace QuiselITELEC1C.Services
             new Instructor()
             {
                 Id= 1,FirstName = "Bernard", LastName = "Sanidad", Rank = Rank.Professor,
-                HiringDate = DateTime.Parse("24/01/2020"), IsTenured = false
+                HiringDate = DateTime.Parse("24/01/2020")
             },
             new Instructor()
             {
                 Id= 2,FirstName = "Beatrix", LastName = "Lacsamana", Rank = Rank.AssistantProfessor,
-                HiringDate = DateTime.Parse("17/04/2017"), IsTenured = false
+                HiringDate = DateTime.Parse("17/04/2017")
             },
             new Instructor()
             {
                 Id= 3,FirstName = "Gabriel", LastName = "Montano", Rank = Rank.AssociateProfessor,
-                HiringDate = DateTime.Parse("12/07/2019"), IsTenured = true
+                HiringDate = DateTime.Parse("12/07/2019")
             }
         };
 

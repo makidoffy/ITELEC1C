@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\RK\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj": {}
+    "C:\\Users\\Varris\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj": {}
   },
   "projects": {
-    "C:\\Users\\RK\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj": {
+    "C:\\Users\\Varris\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\RK\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj",
+        "projectUniqueName": "C:\\Users\\Varris\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj",
         "projectName": "QuiselITELEC1C",
-        "projectPath": "C:\\Users\\RK\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj",
-        "packagesPath": "C:\\Users\\RK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\RK\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\obj\\",
+        "projectPath": "C:\\Users\\Varris\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\QuiselITELEC1C.csproj",
+        "packagesPath": "C:\\Users\\Varris\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Varris\\source\\repos\\QuiselITELEC1C\\QuiselITELEC1C\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\RK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Varris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +44,30 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

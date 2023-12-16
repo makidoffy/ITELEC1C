@@ -8,7 +8,6 @@
         <td>Name</td>
         <td>Rank</td>
         <td>Hiring Date</td>
-        <td>Is Tenured</td>
         <td>Details</td>
         <td>Update</td>
         <td>Delete</td>
@@ -30,8 +29,7 @@
             <td>@instructor.FirstName @instructor.LastName</td>
             <td>@instructor.Rank</td>
             <td>@instructor.HiringDate</td>
-            <td>@instructor.IsTenured</td>
-            <td><a asp-action="ShowDetails" asp-route-id="@instructor.Id">Show Details</a></td>
+            <td><a asp-action="ShowDetails" asp-route-id="@instructor.Id" asp-controller="Instructor">Show Details</a></td>
             <td><a asp-action="UpdateInstructor" asp-route-id="@instructor.Id">Update</a></td>
             <td><a asp-action="Delete" asp-route-id="@instructor.Id">Delete</a></td>
 
